@@ -21,7 +21,7 @@
                                 {{ Auth::user()->name }}
                             </strong></span>
                     </div>
-                    <h6>Welcome to Admin Panel</h6>
+                    <h6>Welcome to sohag Admin Panel</h6>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
-@extends('admin.layout.default')
+{{-- @extends('admin.layout.default') --}}
+@extends('layouts.app')
 @section('title', 'users')
 @section('content')
     <div class="panel panel-flat">
