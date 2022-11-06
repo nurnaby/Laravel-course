@@ -14,6 +14,23 @@
 <details>
 <summary>one To one </summary>
 
-1. how to work laravel ui auth
-2. how to work middleware
+`php `
+```php
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class User extends Model
+{
+    /**
+     * Get the phone associated with the user.
+     */
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
+}
+
+```
+
 </details>
