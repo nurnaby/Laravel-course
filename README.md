@@ -34,3 +34,51 @@ class User extends Model
 ```
 
 </details>
+
+<details>
+<summary>one To many </summary>
+
+`php `
+```php
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class User extends Model
+{
+    /**
+     * Get the phone associated with the user.
+     */
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
+}
+
+```
+
+</details>
+
+<details>
+<summary>Basic project </summary>
+
+`php `
+```php
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class User extends Model
+{
+    /**
+     * Get the phone associated with the user.
+     */
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
+}
+
+```
+
+</details>

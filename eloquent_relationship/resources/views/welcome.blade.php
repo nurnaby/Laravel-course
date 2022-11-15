@@ -14,9 +14,10 @@
 </head>
 
 <body>
+    <h1 class="text-center">Eloquent Relation</h1>
     <div class="container">
 
-        <h1>Eloquent Relation</h1>
+        <h2>One to One</h2>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -30,6 +31,32 @@
                     <tr>
                         <th scope="row">{{ $user->name }}</th>
                         <td>{{ $user->phone->name }}</td>
+
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>One to Many</h2>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">post</th>
+                    <th scope="col">comments</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                    <tr>
+                        <th scope="row">{{ $post->title }}</th>
+                        <td>
+                            @foreach ($post->comments as $comment)
+                                {{ $comment->message }}
+                            @endforeach
+                        </td>
 
                     </tr>
                 @endforeach
