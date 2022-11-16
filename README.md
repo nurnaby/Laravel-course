@@ -60,6 +60,7 @@ class User extends Model
 </details>
 
 <details>
+
 <summary>Basic project </summary>
 
 `php `
