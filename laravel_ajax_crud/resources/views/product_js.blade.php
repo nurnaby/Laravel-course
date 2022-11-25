@@ -26,7 +26,11 @@
                     price: price
                 },
                 success: function(res) {
-
+                    if (res.status == 'success') {
+                        $('#addModal').modal('hide'); //hide modal
+                        $('#addProductForm')[0].reset(); //hide form value
+                        $('.table').load(location.href + ' .table');
+                    }
                 },
                 error: function(err) {
                     let error = err.responseJSON;
@@ -37,5 +41,17 @@
                 }
             })
         })
+        $(document).on('click', '.upDate_product_form', function() {
+            let id = $(this).data('id');
+
+            let name = $(this).data('name');
+            // console.log();
+            let price = $(this).data('price');
+
+            $('#up_id').val(id);
+            $('#up_name').val(name);
+            $('#up_price').val(price);
+
+        });
     })
 </script>

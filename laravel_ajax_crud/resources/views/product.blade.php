@@ -35,18 +35,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>
-                                    <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
-                                    <a href="" class="btn btn-danger"><i class="las la-trash"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($products as $key => $product)
+                                <tr>
+                                    <th scope="row">{{ ++$key }}</th>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-success upDate_product_form"
+                                            data-bs-toggle="modal" data-bs-target="#upDateModal"
+                                            data-id="{{ $product->id }}" data-name="{{ $product->name }}"
+                                            data-price="{{ $product->price }}">
+
+                                            <i class="las la-edit"></i></a>
+
+
+                                        <a href="" class="btn btn-danger"><i class="las la-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
+                    {{ $products->links() }}
                 </div>
             </div>
         </div>
@@ -54,6 +64,7 @@
 
 
     @include('add_modal')
+    @include('upDate_modal')
     @include('product_js')
 
 

@@ -14,8 +14,14 @@ class ClientController extends Controller
         // dd($products);
         return view('user.category',compact('category','products'));
     }
-    public function SingleProduct(){
-        return view('user.singleProduct');
+    public function SingleProduct($id){
+        $data['products'] = product::findOrFail($id);
+        $sub_cat_id = product::where('id',$id)->value('product_subcategory_id');
+        
+        $data['related_products'] = product::where('product_subcategory_id',$sub_cat_id)->latest()->get();
+       
+        
+        return view('user.singleProduct',$data);
     }
     public function AddTocart(){
         return view('user.AddTocart');

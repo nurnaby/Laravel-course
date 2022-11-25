@@ -87,7 +87,15 @@ class productController extends Controller
 
     }
     public function deleteProduct($id){
+        $cat_id    = product::where('id',$id)->value('product_categroy_id');
+        $subCat_id = product::where('id',$id)->value('product_subcategory_id');
+        // $file_path = public_path('upload/blogTham/'.$img_name);
+        // unlink($file_path);
         product::findOrFail($id)->delete();
+        Category::where('id',$cat_id)->decrement('product_count',1);
+        subcategory::where('id',$subCat_id)->decrement('product_count',1);
+
+
         return redirect()->route('allProduct')->with('message','Product Delete successfully');
     }
 }

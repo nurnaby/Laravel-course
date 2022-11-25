@@ -87,7 +87,7 @@
                 <div class="containt_main">
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="index.html">Home</a>
+                        <a href="#">Home</a>
                         @foreach ($categories as $category)
                             <a
                                 href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name }}</a>
@@ -102,7 +102,8 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             @foreach ($categories as $category)
-                                <a class="dropdown-item" href="#">{{ $category->category_name }}</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('category', [$category->id, $category->slug]) }}">{{ $category->category_name }}</a>
                             @endforeach
 
                         </div>

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\subcategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class subcategoryController extends Controller
 {
@@ -54,7 +55,9 @@ class subcategoryController extends Controller
     }
     public function delateSubCategory($id){
         subcategory::findOrFail($id)->delete();
-        return redirect()->route('allSubcategory')->with('message','Delete SubCategory Successfully');
+        Category::where('id',$id)->decrement('subcategory_count',1);
+        Toastr::success('subcategory delete successfully','success');
+        // return redirect()->route('allSubcategory')->with('message','Delete SubCategory Successfully');
 
     }
 }

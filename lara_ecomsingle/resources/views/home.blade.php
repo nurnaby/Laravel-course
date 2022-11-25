@@ -14,7 +14,9 @@
                             </div>
                             <div class="btn_main">
                                 <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                <div class="seemore_bt"><a href="#">See More</a></div>
+                                <div class="seemore_bt"><a
+                                        href="{{ route('SingleProduct', [$product->id, $product->slug]) }}">See More</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -35,8 +35,12 @@
                                 <td>
                                     <a href="{{ route('editSubcategry', $subcategory->id) }}"
                                         class="btn btn-primary">Edit</a>
+
+                                    {{-- <a href="{{ route('deleteSubcategry', $subcategory->id) }}"
+                                        class="btn btn-warning data-delete" data-type="html">Delete</a> --}}
+
                                     <a href="{{ route('deleteSubcategry', $subcategory->id) }}"
-                                        class="btn btn-warning">Delete</a>
+                                        class="btn btn-warning data-delete " data-type="html">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
